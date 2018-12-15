@@ -1,0 +1,28 @@
+<% include ../partials/header %>
+
+<h1><%= message%><h1>
+<div class= "container">
+	<header class = "jumbotron">
+		<div class= "container">
+			<h1>Welcome to Super Hero Central!</h1>
+			<p>View some of the most awesome Super Hero photos here!</p> 
+			<p>
+			<a class= "btn btn-primary btn-large" href= "/superheroes/new">Add Super Hero Pic</a>
+			</p>
+		</div>
+	</header>
+
+	<div class= "row" style= "display:flex; flex-wrap: wrap;">
+		<% superheroes.forEach (function (hero){ %>
+			<div class= "col-md-3 col-sm-6">
+				<div class= "thumbnail">
+					<img src= "<%= hero.image %>"
+					<div class= "caption">
+						<h4 style="text-align: center"><%= hero.name %></h4>
+						<a style= "margin: 0px 80px" href="/superheroes/<%= hero._id%>" class= "btn btn-primary">More Info</a>
+					</div>					
+			</div>
+		<% }) ; %>
+	</div>
+</div>
+<% include ../partials/footer %>
