@@ -10,19 +10,15 @@ var express        = require ("express"),
  	SuperHero      = require ("./models/superHero"),
 	Comments       = require ("./models/comments"),
 	seedDB		   = require ("./seeds") ;
-
-const session = require('express-session'); 
-const MongoStore = require('connect-mongo')(session);
-
-app.use(session({ secret: 'foo', store: new MongoStore(options) }));	
+	
 
 app.set ("view engine", "ejs") ;
 app.use (express.static (__dirname + "/public")) ;
 app.use (flash ()) ;
 app.use (methodOverride('_method')) ;
 app.use (bodyParser.urlencoded ({extended: true})) ;
-//mongoose.connect ("mongodb://localhost/superDB") ;
-mongoose.connect ("mongodb://harshit:Pollos@22@ds249372.mlab.com:49372/superherocentral") ;
+mongoose.connect ("mongodb://localhost/superDB") ;
+//mongoose.connect ("mongodb://harshit:Pollos@22@ds249372.mlab.com:49372/superherocentral") ;
 //
 //seedDB () ;
 	
